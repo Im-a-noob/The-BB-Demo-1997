@@ -1,0 +1,6 @@
+{
+  "name": "BB Demo 1997",
+  "description": "A pure web recreation of the classic 1997 ASCII demo BB using aalib.js",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

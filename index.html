@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BB Demo 1997</title>
+    <meta
+      name="description"
+      content="A pure web recreation of the classic 1997 ASCII demo BB using aalib.js"
+    />
+    <meta property="og:title" content="BB Demo 1997" />
+    <meta
+      property="og:description"
+      content="A pure web recreation of the classic 1997 ASCII demo BB using aalib.js"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/vendor/aalib.js"></script>
+  </head>
+  <body>
+    <!-- Top HUD Header -->
+    <header class="app-header" id="app-header">
+      <div class="app-title-group" id="title-group">
+        <span class="badge-tag" id="badge-tag">AAlib.js</span>
+        <h1 class="app-title" id="app-heading">BB: The Portable Demo (1997)</h1>
+      </div>
+      <div class="hud-status" id="hud-status">
+        <span class="hud-pulse" id="hud-pulse"></span>
+        <span id="hud-scene-name">01. Intro & Memory Dump</span>
+      </div>
+    </header>
+
+    <!-- CRT Monitor & Terminal Screen -->
+    <main class="crt-outer-frame" id="crt-frame">
+      <div class="screen-wrapper scanlines-enabled theme-white" id="screen-wrapper">
+        <!-- Start / Autoplay Permission Overlay -->
+        <div class="start-overlay" id="start-overlay">
+          <div class="start-overlay-card" id="start-card">
+            <h2 class="start-title">BB: The Portable Demo</h2>
+            <p class="start-desc">
+              Faithful pure-web recreation of the landmark 1997 AA-Group demo.
+              Featuring aalib ASCII rendering, Floyd-Steinberg dithering, 3D torus,
+              procedural fire, space invaders, plasma, and original soundtrack.
+            </p>
+            <button class="btn-start" id="btn-start-demo">
+              ▶ Launch Demo (with Sound)
+            </button>
+          </div>
+        </div>
+
+        <!-- ASCII Virtual Display Terminal -->
+        <pre id="terminal" aria-label="ASCII terminal display"></pre>
+        <audio id="bgm-player" preload="auto" playsinline></audio>
+      </div>
+    </main>
+
+    <!-- Interactive Playback Controls -->
+    <section class="control-bar" id="control-bar">
+      <div class="control-group" id="ctrl-group-playback">
+        <button class="btn-ctrl" id="btn-play" title="Play or pause the demo">
+          ⏸ Pause
+        </button>
+        <button class="btn-ctrl" id="btn-skip" title="Skip to next scene">
+          ⏭ Skip Scene
+        </button>
+        <select class="select-ctrl" id="scene-select" title="Jump to scene">
+          <!-- Populated dynamically by main.js -->
+        </select>
+      </div>
+
+      <div class="control-group" id="ctrl-group-display">
+        <select class="select-ctrl" id="speed-select" title="Playback Speed">
+          <option value="1.0" selected>Speed: 1x</option>
+          <option value="1.5">Speed: 1.5x</option>
+          <option value="2.0">Speed: 2x</option>
+          <option value="0.5">Speed: 0.5x</option>
+        </select>
+
+        <select class="select-ctrl" id="phosphor-select" title="CRT Phosphor Color">
+          <option value="white" selected>Phosphor: Monochrome</option>
+          <option value="green">Phosphor: Green (P1)</option>
+          <option value="amber">Phosphor: Amber (P3)</option>
+        </select>
+
+        <button class="btn-ctrl btn-active" id="btn-scanlines" title="Toggle CRT scanlines">
+          Scanlines
+        </button>
+
+        <button class="btn-ctrl" id="btn-mute" title="Mute audio">
+          🔊 Mute
+        </button>
+
+        <input
+          type="range"
+          id="vol-slider"
+          class="slider-ctrl"
+          min="0"
+          max="1"
+          step="0.05"
+          value="0.8"
+          title="Soundtrack Volume"
+        />
+
+        <button class="btn-ctrl" id="btn-fullscreen" title="Toggle Fullscreen">
+          ⛶ Fullscreen
+        </button>
+      </div>
+    </section>
+
+    <!-- Keyboard Shortcuts Reference -->
+    <footer class="shortcuts-footer" id="shortcuts-bar">
+      <div>
+        Shortcuts:
+        <span class="shortcut-pill">[Space]</span> Pause
+        <span class="shortcut-pill">[S / →]</span> Skip
+        <span class="shortcut-pill">[F]</span> Fullscreen
+        <span class="shortcut-pill">[1-3]</span> Jukebox
+        <span class="shortcut-pill">[R]</span> Replay
+      </div>
+      <div>(C) 1997 AA-Group &bull; AAlib.js 2026 Web Edition</div>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
